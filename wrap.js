@@ -35,11 +35,11 @@ function answer3(){
 let lengthPaper = 0;
 for (let i = 0; i < volume.length; i++) {
     volume[i] = volume[i].sort(function (a, b) {  return a - b;  });
-    let S =  volume[i][0];
-    let M =  volume[i][1];
-    let L =  volume[i][2];
-     let length1 = (2*S+ L);
-     let length2= (2*M + 2*S);
+    // let S =  volume[i][0];
+    // let M =  volume[i][1];
+    // let L =  volume[i][2];
+     let length1 = (2*(volume[i][0])+ (volume[i][2]));
+     let length2= (2*(volume[i][1]) + 2*(volume[i][0]));
      if (length1 < length2) {
         lengthPaper += length1;
      }else {
@@ -50,16 +50,12 @@ document.getElementById("answer3").innerText = ` ${lengthPaper} feet of paper`;
 }
 
 
-//#4- 998ft total im using the same for loop cuz im lazy
+//#4- 3845860ft total im using the same for loop cuz im lazy
 function answer4(){
 let perimeterPaper = 0
 for (let i = 0; i < volume.length; i++) {
     volume[i] = volume[i].sort(function (a, b) {  return a - b;  });
-    let S =  volume[i][0];
-    let M =  volume[i][1];
-    let L =  volume[i][2];
-      perimeterPaper = ((S + M + S + M) + (S + L + S + L) + (S * M * L));
-     
+      perimeterPaper += (volume[i][0] + volume[i][1] + volume[i][0] + volume[i][1]) + (volume[i][0] + volume[i][2] + volume[i][0] + volume[i][2]) + (volume[i][0] * volume[i][1] * volume[i][2]);
 }
 document.getElementById("answer4").innerText = ` ${perimeterPaper} feet of ribbon`;
 }
@@ -72,3 +68,11 @@ document.getElementById("answer4").innerText = ` ${perimeterPaper} feet of ribbo
 // function answer2() {document.getElementById("answer2").innerText =` ${areaPaper} feet squared`;}
 // function answer3() {document.getElementById("answer3").innerText = ` ${lengthPaper} feet of paper`;}
 // function answer4() {document.getElementById("answer4").innerText = ` ${perimeterPaper} feet of ribbon`;}
+
+//ha i found a mistake
+// let perimeterPaper = 0
+// for (let i = 0; i < volume.length; i++) {
+//     volume[i] = volume[i].sort(function (a, b) {  return a - b;  });
+//       perimeterPaper += (volume[i][0] + volume[i][1] + volume[i][0] + volume[i][1]) + (volume[i][0] + volume[i][2] + volume[i][0] + volume[i][2]) + (volume[i][0] * volume[i][1] * volume[i][2]);
+// }
+// console.log(perimeterPaper)
